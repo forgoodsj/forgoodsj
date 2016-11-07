@@ -129,9 +129,8 @@ class WeixinInterface:
         
         elif msgType == 'image':
             try:
-                picurl = xml.find('PicUrl').text
-                datas = imgtest(picurl)
-                return self.render.reply_text(fromUser, toUser, int(time.time()), '图中人物性别为'+datas[0]+'\n'+'年龄为'+datas[1])
+                imageid = u'小黄鸡.png'
+                return self.render.reply_image(fromUser, toUser, int(time.time()), imageid)
             except:
                 return self.render.reply_text(fromUser, toUser, int(time.time()),  '呆呆还看不懂图片哎')
            
