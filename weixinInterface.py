@@ -130,7 +130,7 @@ class WeixinInterface:
         elif msgType == 'image':
             try:
                 imageid = u'小黄鸡.png'
-                return self.render.reply_image(fromUser, toUser, int(time.time()), imageid)
+                return self.render.reply_image(fromUser, toUser, int(time.time()), mediaid)
             except:
                 return self.render.reply_text(fromUser, toUser, int(time.time()),  '呆呆还看不懂图片哎')
            
