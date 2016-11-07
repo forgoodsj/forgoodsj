@@ -6,7 +6,7 @@ global s
 s = requests.session()
 
 
-def talk(content):
+def talk(content, userid):
     url = 'http://www.tuling123.com/openapi/api'
     da = {"key": "897539c37d464a1ba5a22a5d4b17150d", "info": content, "userid": userid}
     data = json.dumps(da)
