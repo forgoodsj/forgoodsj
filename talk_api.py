@@ -18,9 +18,9 @@ def talk(content, userid):
     elif code == 200000:
         recontent = j['text']+j['url']
     elif code == 302000:
-        recontent = j['text']+j['list'][0]['info']+j['list'][0]['detailurl']
+        recontent = j['text']+j['list'][0]['article']+j['list'][0]['detailurl']
     elif code == 308000:
-        recontent = j['text']+j['list'][0]['info']+j['list'][0]['detailurl']
+        recontent = j['text']+j['list'][0]['name']+j['list'][0]['detailurl']
     else:
         recontent = u'呆呆还不知道这是什么哎'
     return recontent
