@@ -57,10 +57,15 @@ class WeixinInterface:
                 d2 = datetime.datetime(2013,11,4)
                 timedelta = str(d1 - d2)[:4]
                 if timeNow[8:10] =="04":
-                    reply = u'哇！今天是叔叔和baby的纪念日,在一起%s天啦~一定要好好庆祝呀~'%timedelta
-                    return self.render.reply_text(fromUser,toUser,int(time.time()),reply)
+                    if timeNow[5:10] == "11-04":
+                        year = int(timeNow[0:4]) - 2013
+                        reply = u'哇！今天是叔叔和baby的%s周年纪念日~好棒呀！我们要白头偕老~'%year
+                        return self.render.reply_text(fromUser,toUser,int(time.time()),reply)
+                    else:
+                        reply = u'哇！今天是叔叔和baby的纪念日,在一起%s天啦~一定要好好庆祝呀~'%timedelta
+                        return self.render.reply_text(fromUser,toUser,int(time.time()),reply)
                 elif timeNow[5:10]=="05-28":
-                    reply = u'妈妈~生日快乐~呆呆永远爱你~baby和叔叔在一起%s天啦~'%timedelta
+                    reply = u'baby~生日快乐~呆呆和叔叔永远爱你~baby和叔叔在一起%s天啦~'%timedelta
                     return self.render.reply_text(fromUser,toUser,int(time.time()),reply)
                 else:
                     #key = 'd2ddb6c8b6d84b4c8c278868ec74fcae'
