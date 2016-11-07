@@ -11,6 +11,7 @@ import urllib
 from lxml import etree
 import imgtest
 import talk_api
+import loc
 
 class WeixinInterface:
     
@@ -81,7 +82,8 @@ class WeixinInterface:
                     msg = talk_api.talk(info,userid)
                     timereply = u'哇赛！今天是叔叔和baby在一起的第%s天啦~~'%timedelta
                     timereply1 =timereply.encode('utf-8')
-                    reply = msg + timereply1
+                    loc = loc.loc(fromUser)
+                    reply = msg + timereply1 +loc
                     return self.render.reply_text(fromUser,toUser,int(time.time()),reply)
                     
             elif content == u"我的id":
