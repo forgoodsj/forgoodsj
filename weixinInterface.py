@@ -128,12 +128,11 @@ class WeixinInterface:
         
         
         elif msgType == 'image':
-            id = xml.find("MediaId").text
-            #try:
-                
-                #return self.render.reply_image(fromUser, toUser, int(time.time()), mediaid)
-            #except:
-            return self.render.reply_text(fromUser, toUser, int(time.time()),  id)
+            try:
+                media_id = '100000006'
+                return self.render.reply_image(fromUser, toUser, int(time.time()), media_id)
+            except:
+                return self.render.reply_text(fromUser, toUser, int(time.time()),  id)
            
        
     
