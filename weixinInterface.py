@@ -84,7 +84,8 @@ class WeixinInterface:
                     reply = msg + timereply1
                     return self.render.reply_text(fromUser,toUser,int(time.time()),reply)
                     
-                        
+            elif content == u"我的id":
+                return self.render.reply_text(fromUser,toUser,int(time.time()),fromUser)
             else: 
                 #key = 'd2ddb6c8b6d84b4c8c278868ec74fcae'
                 #api = 'http://www.tuling123.com/openapi/api?key=' + key + '&info='
