@@ -80,7 +80,7 @@ class WeixinInterface:
                     msg = talk_api.talk(info, userid)
                     timereply = u'  哇！今天是叔叔和baby在一起的第%s天啦~~'%timedelta
                     reply = msg + timereply
-                    return self.render.reply_text(fromUser,toUser,int(time.time()),reply)
+                    return self.render.reply_text(fromUser,toUser,int(time.time()),msg)
                     
                         
             else: 
