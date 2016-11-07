@@ -61,27 +61,26 @@ class WeixinInterface:
                     reply = u'妈妈~生日快乐~呆呆永远爱你~baby和叔叔在一起%s天啦~'%timedelta
                     return self.render.reply_text(fromUser,toUser,int(time.time()),reply)
                 else:
-                    key = 'd2ddb6c8b6d84b4c8c278868ec74fcae'
-                    api = 'http://www.tuling123.com/openapi/api?key=' + key + '&info='
-                    info = content.encode('utf-8')
-                    url = api + info
-                    page = urllib.urlopen(url)
-                    html = page.read()
-                    dic_json = json.loads(html)
-                    reply_content = dic_json['text']
-                    try:
-                        reply_url = dic_json['url']
-                    except:
-                        reply_url = ''
-                    timereply = u'  哇！今天是叔叔和baby在一起的第%s天啦~~'%timedelta
-                    reply = reply_content + timereply +reply_url
-                    return self.render.reply_text(fromUser,toUser,int(time.time()),reply)
+                    #key = 'd2ddb6c8b6d84b4c8c278868ec74fcae'
+                    #api = 'http://www.tuling123.com/openapi/api?key=' + key + '&info='
                     #info = content.encode('utf-8')
-                    #msg = talk_api.talk(info, userid)
+                    #url = api + info
+                    #page = urllib.urlopen(url)
+                    #html = page.read()
+                    #dic_json = json.loads(html)
+                    #reply_content = dic_json['text']
+                    #try:
+                        #reply_url = dic_json['url']
+                    #except:
+                        #reply_url = ''
                     #timereply = u'  哇！今天是叔叔和baby在一起的第%s天啦~~'%timedelta
-                    #info2 = msg.encode('utf-8')
-                    #reply = info2 + timereply
+                    #reply = reply_content + timereply +reply_url
                     #return self.render.reply_text(fromUser,toUser,int(time.time()),reply)
+                    info = content.encode('utf-8')
+                    msg = talk_api.talk(info, userid)
+                    timereply = u'  哇！今天是叔叔和baby在一起的第%s天啦~~'%timedelta
+                    reply = msg + timereply
+                    return self.render.reply_text(fromUser,toUser,int(time.time()),reply)
                     
                         
             else: 
