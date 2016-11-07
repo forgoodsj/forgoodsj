@@ -86,38 +86,45 @@ class WeixinInterface:
                     
                         
             else: 
-                key = 'd2ddb6c8b6d84b4c8c278868ec74fcae'
-                api = 'http://www.tuling123.com/openapi/api?key=' + key + '&info='
+                #key = 'd2ddb6c8b6d84b4c8c278868ec74fcae'
+                #api = 'http://www.tuling123.com/openapi/api?key=' + key + '&info='
+                #info = content.encode('utf-8')
+                #url = api + info
+                #page = urllib.urlopen(url)
+                #html = page.read()
+                #dic_json = json.loads(html)
+                #reply_content = dic_json['text']
+                #try:
+                    #reply_url = dic_json['url']
+                #except:
+                    #reply_url = ''
+                #reply = reply_content + reply_url
+                #return self.render.reply_text(fromUser,toUser,int(time.time()),reply)
                 info = content.encode('utf-8')
-                url = api + info
-                page = urllib.urlopen(url)
-                html = page.read()
-                dic_json = json.loads(html)
-                reply_content = dic_json['text']
-                try:
-                    reply_url = dic_json['url']
-                except:
-                    reply_url = ''
-                reply = reply_content + reply_url
-                return self.render.reply_text(fromUser,toUser,int(time.time()),reply)
+                msg = talk_api.talk(info,userid)
+                return self.render.reply_text(fromUser,toUser,int(time.time()),msg)
               
             
         elif msgType == 'voice':
-            content = xml.find("Recognition").text       
-            key = 'd2ddb6c8b6d84b4c8c278868ec74fcae'
-            api = 'http://www.tuling123.com/openapi/api?key=' + key + '&info='
+            #content = xml.find("Recognition").text       
+            #key = 'd2ddb6c8b6d84b4c8c278868ec74fcae'
+            #api = 'http://www.tuling123.com/openapi/api?key=' + key + '&info='
+            #info = content.encode('utf-8')
+            #url = api + info
+            #page = urllib.urlopen(url)
+            #html = page.read()
+            #dic_json = json.loads(html)
+            #reply_content = dic_json['text']
+            #try:
+                #reply_url = dic_json['url']
+            #except:
+                #reply_url = ''
+            #reply = reply_content + reply_url
+            #return self.render.reply_text(fromUser,toUser,int(time.time()),reply)
             info = content.encode('utf-8')
-            url = api + info
-            page = urllib.urlopen(url)
-            html = page.read()
-            dic_json = json.loads(html)
-            reply_content = dic_json['text']
-            try:
-                reply_url = dic_json['url']
-            except:
-                reply_url = ''
-            reply = reply_content + reply_url
-            return self.render.reply_text(fromUser,toUser,int(time.time()),reply)        
+            msg = talk_api.talk(info,userid)
+            return self.render.reply_text(fromUser,toUser,int(time.time()),msg)
+                    
         
         
         elif msgType == 'image':
@@ -126,7 +133,7 @@ class WeixinInterface:
                 datas = imgtest(picurl)
                 return self.render.reply_text(fromUser, toUser, int(time.time()), '图中人物性别为'+datas[0]+'\n'+'年龄为'+datas[1])
             except:
-                return self.render.reply_text(fromUser, toUser, int(time.time()),  '识别失败，换张图片试试吧')
+                return self.render.reply_text(fromUser, toUser, int(time.time()),  '呆呆还看不懂图片哎')
            
        
     
