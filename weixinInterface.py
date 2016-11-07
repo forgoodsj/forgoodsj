@@ -47,6 +47,7 @@ class WeixinInterface:
         msgType=xml.find("MsgType").text
         fromUser=xml.find("FromUserName").text
         toUser=xml.find("ToUserName").text
+        userid = fromUser[0:15]
         timeNow = time.strftime('%Y-%m-%d',time.localtime(time.time()))
         if msgType == 'text':
             content = xml.find("Content").text
@@ -77,7 +78,7 @@ class WeixinInterface:
                     #reply = reply_content + timereply +reply_url
                     #return self.render.reply_text(fromUser,toUser,int(time.time()),reply)
                     info = content.encode('utf-8')
-                    msg = talk_api.talk(info,fromUser)
+                    msg = talk_api.talk(info,userid)
                     timereply = u'哇赛！今天是叔叔和baby在一起的第%s天啦~~'%timedelta
                     timereply1 =timereply.encode('utf-8')
                     reply = msg + timereply1
