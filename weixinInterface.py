@@ -108,7 +108,7 @@ class WeixinInterface:
                 #reply = reply_content + reply_url
                 #return self.render.reply_text(fromUser,toUser,int(time.time()),reply)
                 info = content.encode('utf-8')
-                msg = talk_api.talk(content,userid)
+                msg = talk_api.talk(info,userid)
                 return self.render.reply_text(fromUser,toUser,int(time.time()),msg)
               
             
