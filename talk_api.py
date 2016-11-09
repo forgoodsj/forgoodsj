@@ -30,8 +30,8 @@ def talk(content, userid):
         recontent = u'呆呆还不知道这是什么哎'
     return recontent
 
-content = u'新闻'
-userid = '12321'
-print talk(content, userid)
+#content = u'新闻'
+#userid = '12321'
+#print talk(content, userid)
 
 
