@@ -108,9 +108,9 @@ class WeixinInterface:
                     return self.render.reply_text(fromUser,toUser,int(time.time()),msg)
                 elif isinstance(msg,tuple):
                     try:
-                        return self.render.reply_link(fromUser,toUser,int(time.time()),'1','2','www.baidu.com')
+                        return self.render.reply_onenew(fromUser,toUser,int(time.time()),msg[2],msg[0],'',msg[1])
                     except:
-                        return self.render.reply_link(fromUser,toUser,int(time.time()),'1','2','www.baidu.com')
+                        return self.render.reply_onenew(fromUser,toUser,int(time.time()),content,msg[0],'',msg[1])
                 else:
                     return self.render.reply_text(fromUser,toUser,int(time.time()),u'呆呆出问题了')
                     
