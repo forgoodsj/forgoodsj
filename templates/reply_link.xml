@@ -4,8 +4,8 @@ $def with (toUser,fromUser,createTime,title,description,url)
 <FromUserName><![CDATA[$fromUser]]></FromUserName>
 <CreateTime>$createTime</CreateTime>
 <MsgType><![CDATA[link]]></MsgType>
-<Title><![CDATA[title]]></Title>
-<Description><![CDATA[description]]></Description>
+<Title><$title></Title>
+<Description><$description></Description>
 <Url><![CDATA[url]]></Url>
 </xml>
 
