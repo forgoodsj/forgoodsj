@@ -108,7 +108,7 @@ class WeixinInterface:
                     return self.render.reply_text(fromUser,toUser,int(time.time()),msg)
                 elif isinstance(msg,tuple):
                     try:
-                        return self.render.reply_onenew(fromUser,toUser,int(time.time()),msg[2],msg[0],'',msg[1])
+                        return self.render.reply_onenew(fromUser,toUser,int(time.time()),msg[2],msg[0],'https://mp.weixin.qq.com/cgi-bin/downloadfile?fileid=100000005&token=1735153769&lang=zh_CN',msg[1])
                     except:
                         return self.render.reply_onenew(fromUser,toUser,int(time.time()),content,msg[0],'',msg[1])
                 else:
