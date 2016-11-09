@@ -107,8 +107,9 @@ class WeixinInterface:
                 if isinstance(msg,str):
                     return self.render.reply_text(fromUser,toUser,int(time.time()),msg)
                 elif isinstance(msg,tuple):
+                    newspic ='https://mmbiz.qlogo.cn/mmbiz_jpg/w7XYZOGUbVF79pQMcpiak34XoWcOHxBNk4Sym94Zh7RMuxF2v5tuQr42TysGWZco7mnAyxfJrmhjwr2JPYG6haQ/0?wx_fmt=jpeg'
                     try:
-                        return self.render.reply_onenew(fromUser,toUser,int(time.time()),msg[2],msg[0],'https://mp.weixin.qq.com/cgi-bin/downloadfile?fileid=100000005&token=1735153769&lang=zh_CN',msg[1])
+                        return self.render.reply_onenew(fromUser,toUser,int(time.time()),msg[2],msg[0],newspic,msg[1])
                     except:
                         return self.render.reply_onenew(fromUser,toUser,int(time.time()),content,msg[0],'',msg[1])
                 else:
