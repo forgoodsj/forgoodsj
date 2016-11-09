@@ -104,7 +104,14 @@ class WeixinInterface:
                 #return self.render.reply_text(fromUser,toUser,int(time.time()),reply)
                 info = content.encode('utf-8')
                 msg = talk_api.talk(info,userid)
-                return self.render.reply_text(fromUser,toUser,int(time.time()),msg)
+                if isinstance(msg,str):
+                    return self.render.reply_text(fromUser,toUser,int(time.time()),msg)
+                elif isinstance(msg,tuple):
+                    try:
+                        return self.render.reply_link(fromUser,toUser,int(time.time()),msg[2],msg[0],msg[1])
+                    except:
+                        return self.render.reply_link(fromUser,toUser,int(time.time()),content,msg[0],msg[1])    
+                    
               
             
         elif msgType == 'voice':

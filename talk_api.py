@@ -16,16 +16,13 @@ def talk(content, userid):
     if code == 100000:
         recontent = j['text']
     elif code == 200000:
-        recontent = j['text']+j['url']
+        recontent = (j['text'],j['url'])
     elif code == 302000:
-        recontent = j['text']+'。新闻标题:'+j['list'][0]['article']+j['list'][0]['detailurl']
+        recontent = (j['text'],j['list'][0]['detailurl'],j['list'][0]['article'])
     elif code == 308000:
-        recontent = j['text']+j['list'][0]['name']+j['list'][0]['detailurl']
+        recontent = (j['text'],j['list'][0]['name'],j['list'][0]['detailurl'])
     else:
         recontent = u'呆呆还不知道这是什么哎'
     return recontent
 
-#content = '你好'
-#msg = talk(content)
-#info = msg.encode('utf-8')
-#print info
+
