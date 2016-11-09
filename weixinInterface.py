@@ -116,7 +116,7 @@ class WeixinInterface:
                     if msg[0] == 20000:
                         return self.render.reply_onenew(fromUser,toUser,int(time.time()),content,msg[1],'',msg[2])
                     elif msg[0] == 302000:
-                        return self.render.reply_news(fromUser,toUser,int(time.time()),msg[1],msg[2])
+                        return self.render.reply_onenew(fromUser,toUser,int(time.time()),msg[1][0][0],msg[1][0][1],msg[1][0][2],msg[1][0][3])
                     elif msg[0] == 308000:
                         return self.render.reply_onenew(fromUser,toUser,int(time.time()),msg[1],msg[2],msg[3],msg[4])
                     
