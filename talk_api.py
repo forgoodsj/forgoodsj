@@ -32,5 +32,5 @@ def talk(content, userid):
 content = u'新闻'
 userid = '123'
 a =talk(content, userid)
-print a
+print a[1][0][3]
 '''

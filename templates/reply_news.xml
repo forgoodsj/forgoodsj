@@ -9,12 +9,12 @@ $def with (toUser,fromUser,createTime,news,num)
     <Articles>
 	$for m in range(num-1):      
         <item>
-            <Title>$news[m][0]</Title>
+        <Title>$news[m][0]</Title>
         <Description><![CDATA[$news[m][1]]]></Description>
         <PicUrl><![CDATA[$news[m][2]]]></PicUrl>
         <Url><![CDATA[$news[m][3]]]></Url>
         </item>
     </Articles>	
-    </xml>
+</xml>
 
 
