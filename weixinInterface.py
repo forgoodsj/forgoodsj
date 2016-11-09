@@ -108,10 +108,14 @@ class WeixinInterface:
                     return self.render.reply_text(fromUser,toUser,int(time.time()),msg)
                 elif isinstance(msg,tuple):
                     newspic ='https://mmbiz.qlogo.cn/mmbiz_jpg/w7XYZOGUbVF79pQMcpiak34XoWcOHxBNk4Sym94Zh7RMuxF2v5tuQr42TysGWZco7mnAyxfJrmhjwr2JPYG6haQ/0?wx_fmt=jpeg'
-                    try:
-                        return self.render.reply_onenew(fromUser,toUser,int(time.time()),msg[2],msg[0],newspic,msg[1])
-                    except:
-                        return self.render.reply_onenew(fromUser,toUser,int(time.time()),content,msg[0],'',msg[1])
+                    if msg[0] == 20000:
+                        return self.render.reply_onenew(fromUser,toUser,int(time.time()),content,msg[1],'',msg[2])
+                    elif msg[0] == 302000:
+                        return self.render.reply_news(fromUser,toUser,int(time.time()),msg[1],msg[2])
+                    elif msg[0] == 308000:
+                        return self.render.reply_onenew(fromUser,toUser,int(time.time()),msg[1],msg[2],msg[3],msg[4])
+                    
+                    
                 else:
                     return self.render.reply_text(fromUser,toUser,int(time.time()),u'呆呆出问题了')
                     
