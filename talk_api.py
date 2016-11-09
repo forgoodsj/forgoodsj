@@ -28,9 +28,9 @@ def talk(content, userid):
     else:
         recontent = u'呆呆还不知道这是什么哎'
     return recontent
-'''
-content = u'新闻'
+
+content = u'你好'
 userid = '123'
 a =talk(content, userid)
-print a[1][0][3]
-'''
+print a
+
