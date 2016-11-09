@@ -18,16 +18,19 @@ def talk(content, userid):
     elif code == 200000:
         recontent = (code,j['text'],j['url'])
     elif code == 302000:
-        recontent= []
-        num = 0
-        for n in j['list']:
-            recontent.append[(n['article'],'',n['icon'],n['detailurl'])]
-            num = num + 1
-        return (code,recontent,n)
+        recontent = []
+        num = len(j['list'])
+        for n in range(num-1):
+            recontent.append((j['list'][n]['article'],j['list'][n]['source'],j['list'][n]['icon'],j['list'][n]['detailurl']))
+        return (code , recontent, num)
     elif code == 308000:
         recontent = (code,j['text'],j['list'][0]['name'],j['list'][0]['info'],j['list'][0]['icon'],j['list'][0]['detailurl'])
     else:
         recontent = u'呆呆还不知道这是什么哎'
     return recontent
-
-
+'''
+content = u'新闻'
+userid = '123'
+a =talk(content, userid)
+print a
+'''
