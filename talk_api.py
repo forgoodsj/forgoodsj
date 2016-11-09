@@ -21,9 +21,9 @@ def talk(content, userid):
         recontent= []
         num = 0
         for n in j['list']:
-            recontent.append[code,(n['article'],'',n['icon'],n['detailurl'])]
+            recontent.append[(n['article'],'',n['icon'],n['detailurl'])]
             num = num + 1
-        return (recontent,n)
+        return (code,recontent,n)
     elif code == 308000:
         recontent = (code,j['text'],j['list'][0]['name'],j['list'][0]['info'],j['list'][0]['icon'],j['list'][0]['detailurl'])
     else:
