@@ -6,13 +6,13 @@ $def with (toUser,fromUser,createTime,xinwen,num)
 <MsgType><![CDATA[news]]></MsgType>
 <ArticleCount>$num</ArticleCount>
 <Articles>
-     $for m in range(num)    
-    <item>
-    <Title>$xinwen[m][0]</Title>
-    <Description><![CDATA[$xinwen[m][1]]]></Description>
-    <PicUrl><![CDATA[$xinwen[m][2]]]></PicUrl>
-    <Url><![CDATA[$xinwen[m][3]]]></Url>
-    </item>
+$for m in range(num):    
+     <item>
+     <Title>$xinwen[m][0]</Title>
+     <Description><![CDATA[$xinwen[m][1]]]></Description>
+     <PicUrl><![CDATA[$xinwen[m][2]]]></PicUrl>
+     <Url><![CDATA[$xinwen[m][3]]]></Url>
+     </item>
 </Articles>	
 </xml>
 
