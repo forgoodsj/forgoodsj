@@ -7,7 +7,7 @@ $def with (toUser,fromUser,createTime,news,num)
 <MsgType><![CDATA[news]]></MsgType>
 <ArticleCount>$num</ArticleCount>
 <Articles>
-     $for m in range(num-1):      
+     $for m in range(num):      
     <item>
         <Title>$news[m][0]</Title>
     <Description><![CDATA[$news[m][1]]]></Description>
