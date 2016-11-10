@@ -34,7 +34,7 @@ def talk(content, userid):
         for n in j['list']:
             recontent.append((n['article'],n['source'],n['icon'],n['detailurl']))
             num = num + 1
-            if num > 4:
+            if num > 2:
                 break
             return (code , recontent, num)
     elif code == 308000:
