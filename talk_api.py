@@ -40,6 +40,8 @@ def talk(content, userid):
         return (code , recontent, num)
     elif code == 308000:
         #recontent = (code,j['text'],j['list'][0]['name'],j['list'][0]['info'],j['list'][0]['icon'],j['list'][0]['detailurl'])
+        recontent = []
+        num = 0
         for n in j['list']:
             recontent.append((n['article'],n['info'],n['icon'],n['detailurl']))
             if num < 10:
