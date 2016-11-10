@@ -53,8 +53,8 @@ def talk(content, userid):
         'https://mmbiz.qlogo.cn/mmbiz_png/w7XYZOGUbVEE0zl6MWr1MZj695AtnK2Gibatuvu8ibL0AiaEwLlsCE9QaiayuGZELHfRa9Pk1P2axbXNDRd41ft5lg/0?wx_fmt=png',
         'https://mmbiz.qlogo.cn/mmbiz_png/w7XYZOGUbVEE0zl6MWr1MZj695AtnK2GLklDoiao3dpOalSUSRbolVcPl3svoF04Av7aZuZic9rCKIdGZmClct0A/0?wx_fmt=png']        
         for n in j['list']:
-            recontent.append((n['name'],n['info'],picurl[num],n['detailurl']))
             if num < 10:
+                recontent.append((n['name'],n['info'],picurl[num],n['detailurl']))
                 num = num + 1
             else:
                 break
@@ -65,10 +65,10 @@ def talk(content, userid):
     return recontent
 
 
-'''
+
 content = u'红烧肉'
 userid = '123'
 a =talk(content, userid)
 print a
-'''
+
 
