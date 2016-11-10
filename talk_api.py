@@ -39,7 +39,15 @@ def talk(content, userid):
                 break
         return (code , recontent, num)
     elif code == 308000:
-        recontent = (code,j['text'],j['list'][0]['name'],j['list'][0]['info'],j['list'][0]['icon'],j['list'][0]['detailurl'])
+        #recontent = (code,j['text'],j['list'][0]['name'],j['list'][0]['info'],j['list'][0]['icon'],j['list'][0]['detailurl'])
+        for n in j['list']:
+            recontent.append((n['article'],n['info'],n['icon'],n['detailurl']))
+            if num < 10:
+                num = num + 1
+            else:
+                break
+        return (code , recontent, num)
+        
     else:
         recontent = u'呆呆还不知道这是什么哎'
     return recontent
