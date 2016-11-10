@@ -116,9 +116,7 @@ class WeixinInterface:
                     if msg[0] == 20000:
                         return self.render.reply_onenew(fromUser,toUser,int(time.time()),content,msg[1],'',msg[2])
                     elif msg[0] == 302000:                        
-                        msg = ('\xe7\xbe\x8e\xe5\x9b\xbd\xe5\xa4\xa7\xe9\x80\x89\xe6\x88\x91\xe5\x8f\xaa\xe6\x9c\x8d\xe5\xb7\x9d\xe6\x99\xae\xe4\xbb\x96\xe5\xa5\xb3\xe5\x84\xbf\xef\xbc\x81', '\xe6\x96\xb0\xe6\xb5\xaa\xe6\x96\xb0\xe9\x97\xbb', 'http://k.sinaimg.cn/n/news/transform/20161110/UNcC-fxxsmih9396175.jpg/w120h90l50t138f.jpg', 'http://fun.sina.cn/?vt=4&pos=3')
-                        msg1 = [msg,msg]
-                        return self.render.reply_news(fromUser,toUser,int(time.time()),msg1,2)
+                        return self.render.reply_news(fromUser,toUser,int(time.time()),msg[1],meg[2])
                         #return self.render.reply_text(fromUser,toUser,int(time.time()),msg[1][1])
                     elif msg[0] == 308000:
                         return self.render.reply_onenew(fromUser,toUser,int(time.time()),msg[1],msg[2],msg[3],msg[4])
