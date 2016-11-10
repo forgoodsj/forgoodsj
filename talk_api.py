@@ -44,7 +44,7 @@ def talk(content, userid):
         num = 0
         picurl=['https://mmbiz.qlogo.cn/mmbiz_jpg/w7XYZOGUbVEE0zl6MWr1MZj695AtnK2GibSfY3O03ZdTtZrcCRCNFcl3eNOZ5PiabmC5fMJHECpw2IJvJzjrVZrA/0?wx_fmt=jpeg',
         'https://mmbiz.qlogo.cn/mmbiz_png/w7XYZOGUbVEE0zl6MWr1MZj695AtnK2GTRC5lsfAtOO0OoWtxVRhyibeSKnPNHcdng82iaa5RO7y8iaIaf6k7j6aA/0?wx_fmt=png',
-        'https://mmbiz.qlogo.cn/mmbiz_png/w7XYZOGUbVEE0zl6MWr1MZj695AtnK2GTRC5lsfAtOO0OoWtxVRhyibeSKnPNHcdng82iaa5RO7y8iaIaf6k7j6aA/0?wx_fmt=png',
+        'https://mmbiz.qlogo.cn/mmbiz_png/w7XYZOGUbVEE0zl6MWr1MZj695AtnK2G4C5kDwt0TsUVItgpRCehXG8ZVMKokDGSNWC7tiagtGJNTRTicEO937zg/0?wx_fmt=png',
         'https://mmbiz.qlogo.cn/mmbiz_png/w7XYZOGUbVEE0zl6MWr1MZj695AtnK2GyZzgfvDZc2Pg4xEpJicT3Wt11XzveblXfOCQLASJ1IaphRzFSaHrpicg/0?wx_fmt=png',
         'https://mmbiz.qlogo.cn/mmbiz_png/w7XYZOGUbVEE0zl6MWr1MZj695AtnK2GlXlL8MASn2ibR2CJTCZBNpQXx17iaoIP3W3Gaha4uCTydZTQkGxRhiciaQ/0?wx_fmt=png',
         'https://mmbiz.qlogo.cn/mmbiz_png/w7XYZOGUbVEE0zl6MWr1MZj695AtnK2GmPPG7CbVxGOCicXibDzbBums59sfN9LbmTwicHZl2muzuvqcicmAR2BILQ/0?wx_fmt=png',
