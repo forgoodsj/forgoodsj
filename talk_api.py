@@ -54,7 +54,7 @@ def talk(content, userid):
         'https://mmbiz.qlogo.cn/mmbiz_png/w7XYZOGUbVEE0zl6MWr1MZj695AtnK2GLklDoiao3dpOalSUSRbolVcPl3svoF04Av7aZuZic9rCKIdGZmClct0A/0?wx_fmt=png']        
         for n in j['list']:
             if num < 10:
-                recontent.append((n['name']+':'+n['info'],n['info'],picurl[num],n['detailurl']))
+                recontent.append((n['name'],n['info'],picurl[num],n['detailurl']))
                 num = num + 1
             else:
                 break
@@ -66,7 +66,7 @@ def talk(content, userid):
 
 
 
-content = u'红烧肉'
+content = u'电影'
 userid = '123'
 a =talk(content, userid)
 print a
