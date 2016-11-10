@@ -141,7 +141,7 @@ class WeixinInterface:
                 if isinstance(msg,str):
                     return self.render.reply_text(fromUser,toUser,int(time.time()),msg)
                 elif isinstance(msg,tuple):                               
-                    if msg[0] == 20000:
+                    if msg[0] == 200000:
                         return self.render.reply_onenew(fromUser,toUser,int(time.time()),content,msg[1],'',msg[2])
                     elif msg[0] == 302000:                        
                         return self.render.reply_news(fromUser,toUser,int(time.time()),msg[1],msg[2])
