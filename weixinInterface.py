@@ -147,7 +147,7 @@ class WeixinInterface:
                                 
                                 
                 else:
-                        eturn self.render.reply_text(fromUser,toUser,int(time.time()),u'呆呆出问题了')
+                    return self.render.reply_text(fromUser,toUser,int(time.time()),u'呆呆出问题了')
             
                     
         
