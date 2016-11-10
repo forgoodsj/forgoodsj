@@ -43,7 +43,7 @@ def talk(content, userid):
         recontent = []
         num = 0
         for n in j['list']:
-            recontent.append((n['article'],n['info'],n['icon'],n['detailurl']))
+            recontent.append((n['name'],n['info'],n['icon'],n['detailurl']))
             if num < 10:
                 num = num + 1
             else:
@@ -56,7 +56,7 @@ def talk(content, userid):
 
 
 '''
-content = u'新闻'
+content = u'红烧肉'
 userid = '123'
 a =talk(content, userid)
 print a
