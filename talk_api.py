@@ -33,7 +33,7 @@ def talk(content, userid):
         num = 0
         for n in j['list']:
             recontent.append((n['article'],n['source'],n['icon'],n['detailurl']))
-            if num < 8:
+            if num < 10:
                 num = num + 1
             else:
                 break
