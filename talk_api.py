@@ -33,17 +33,16 @@ def talk(content, userid):
         num = 0
         for n in j['list']:
             recontent.append((n['article'],n['source'],n['icon'],n['detailurl']))
-            if num > 5:
-                break
-            else:
+            if num < 5:
                 num = num + 1
-            return (code , recontent, num)
+            else:
+                break
+        return (code , recontent, num)
     elif code == 308000:
         recontent = (code,j['text'],j['list'][0]['name'],j['list'][0]['info'],j['list'][0]['icon'],j['list'][0]['detailurl'])
     else:
         recontent = u'呆呆还不知道这是什么哎'
     return recontent
-
 
 
 '''
