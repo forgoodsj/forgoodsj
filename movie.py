@@ -5,14 +5,16 @@ import requests
 import re
 import json
 import time
+import urllib2
 
 def douban_movie():
     douban_url = 'https://movie.douban.com/'
-    douban_html = requests.get(douban_url).text
-    c = re.compile(r'<a onclick="moreurl.*?href="(.*?)"[\s\S]*?src="(.*?)" alt="(.*?)" [\s\S]*?class="subject-rate">(.*?)</span>', re.S)
-    DOUBAN = re.match(c, douban_html)
+    douban_html = urllib2.urlopen(douban_url).read().decode("utf-8")
+    #c = re.compile(r'<a onclick="moreurl.*?href="(.*?)"[\s\S]*?src="(.*?)" alt="(.*?)" [\s\S]*?class="subject-rate">(.*?)</span>', re.S)
+    c = re.compile(r'href="https://movie.douban.com/subject/3025375/?from=(.......)', re.S)
+    DOUBAN = re.findall(c, douban_html)
+    return DOUBAN
      #电影url链接，电影宣传图片，电影标题，电影评分。
-    print DOUBAN
     '''
     piaofang_url = 'http://www.cbooo.cn/boxOffice/GetHourBoxOffice?d=%s'%str(time.time()).split('.')[0]
     piaofang_json = requests.get(piaofang_url).text
