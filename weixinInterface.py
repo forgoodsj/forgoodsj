@@ -86,7 +86,7 @@ class WeixinInterface:
                     
             elif content == u"我的id":
                 return self.render.reply_text(fromUser,toUser,int(time.time()),fromUser)
-            elif content == u"测试":
+            elif content == u"我要看电影":
                 msg = movietop10.parse_html()
                 return self.render.reply_news(fromUser,toUser,int(time.time()),msg,10)
             
