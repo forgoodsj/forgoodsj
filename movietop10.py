@@ -48,5 +48,5 @@ def parse_html():
     return movie_list
 
 
-print parse_html()
+#print parse_html()
    
