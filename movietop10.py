@@ -5,17 +5,19 @@ import requests
 from bs4 import BeautifulSoup
 import codecs
 
-DOWNLOAD_URL ='https://movie.douban.com/nowplaying/shanghai/'
+url ='https://movie.douban.com/nowplaying/shanghai/'
 
-def download_page(url):
+def download_page():
+    url ='https://movie.douban.com/nowplaying/shanghai/'
     headers = {
             'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.80 Safari/537.36'
         }
     data = requests.get(url, headers=headers).content
+    
     return data
 
-def parse_html(html):
-    
+def parse_html():
+    html = download_page()
     soup = BeautifulSoup(html)
     
     movie_now = soup.find('div', attrs={'id': 'nowplaying'})
@@ -41,12 +43,3 @@ def parse_html(html):
     #return movie_list.sort(key = int(movie_list['movie_score']))
     return movie_list
    
-
-def main():
-    url = DOWNLOAD_URL
-    html = download_page(url)
-    return parse_html(html)
-    
-            
-if __name__== '__main__':
-    main()
