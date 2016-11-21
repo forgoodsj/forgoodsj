@@ -28,7 +28,7 @@ def parse_html():
         try:
             movie =[]
             movie_name = movie_li.find('a', attrs={'data-psource': 'title'}).getText().strip()            
-            movie_score = movie_li.find('span', attrs={'class': 'subject-rate'}).getText()
+            movie_score = movie_li.img['alt']
             #movie_director = movie_li.li['data-director']
             #movie_actors = movie_li.li['data-actors']
             movie_url = movie_li.a['href']
