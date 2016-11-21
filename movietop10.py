@@ -21,7 +21,7 @@ def parse_html(html):
     movie_now = soup.find('div', attrs={'id': 'nowplaying'})
     movie_modbd = movie_now.find('div', attrs={'class': 'mod-bd'})
     movie_list_soup = movie_modbd.find('ul', attrs={'class': 'lists'})
-    movie ={}
+    movie =()
     movie_list = []    
     for movie_li in movie_list_soup.find_all('li',attrs={'class': 'list-item'}):
         try:
@@ -32,7 +32,8 @@ def parse_html(html):
             #movie_actors = movie_li.li['data-actors']
             movie_url = movie_li.a['href']
             movie_picurl = movie_li.img['src']
-            movie = {'movie_name':movie_name,'movie_score':movie_score,'movie_url':movie_url,'movie_picurl':movie_picurl}
+            movie.append(movie_name+u'    评分:'+movie_score,u'评分:'+movie_score,movie_picurl,movie_url)
+            #movie = {'movie_name':movie_name,'movie_score':movie_score,'movie_url':movie_url,'movie_picurl':movie_picurl}
             movie_list.append(movie)
         except:
             pass
