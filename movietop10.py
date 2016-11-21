@@ -29,14 +29,15 @@ def parse_html():
             movie =[]
             movie_name = movie_li.find('a', attrs={'data-psource': 'title'}).getText().strip()            
             movie_score = movie_li.find('span', attrs={'class': 'subject-rate'}).getText()
+            movie_score_int = int(movie_score)
             #movie_director = movie_li.li['data-director']
             #movie_actors = movie_li.li['data-actors']
             movie_url = movie_li.a['href']
             movie_picurl = movie_li.img['src']
             #movie.append(movie_name+u'    评分:'+movie_score,u'评分:'+movie_score,movie_picurl,movie_url)
             #movie = {'movie_name':movie_name,'movie_score':movie_score,'movie_url':movie_url,'movie_picurl':movie_picurl}
-            movie.append(movie_name+u'    评分:'+movie_score)
-            movie.append(u'评分:'+movie_score)
+            movie.append(movie_name+u'    评分:'+movie_score_int)
+            movie.append(movie_score_int)
             movie.append(movie_picurl)
             movie.append(movie_url)
             movie_list.append(movie)
@@ -44,9 +45,9 @@ def parse_html():
         except:
             pass
         
-    #return movie_list.sort(key=lambda x:x[1])
-    return movie_list
+    return movie_list.sort(key=lambda x:x[1])
+    #return movie_list
 
 
-print parse_html()
+#print parse_html()
    
