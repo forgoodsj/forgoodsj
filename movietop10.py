@@ -23,23 +23,30 @@ def parse_html():
     movie_now = soup.find('div', attrs={'id': 'nowplaying'})
     movie_modbd = movie_now.find('div', attrs={'class': 'mod-bd'})
     movie_list_soup = movie_modbd.find('ul', attrs={'class': 'lists'})
-    movie =()
     movie_list = []    
     for movie_li in movie_list_soup.find_all('li',attrs={'class': 'list-item'}):
         try:
-            
+            movie =[]
             movie_name = movie_li.find('a', attrs={'data-psource': 'title'}).getText().strip()            
             movie_score = movie_li.find('span', attrs={'class': 'subject-rate'}).getText()
             #movie_director = movie_li.li['data-director']
             #movie_actors = movie_li.li['data-actors']
             movie_url = movie_li.a['href']
             movie_picurl = movie_li.img['src']
-            movie.append(movie_name+u'    评分:'+movie_score,u'评分:'+movie_score,movie_picurl,movie_url)
+            #movie.append(movie_name+u'    评分:'+movie_score,u'评分:'+movie_score,movie_picurl,movie_url)
             #movie = {'movie_name':movie_name,'movie_score':movie_score,'movie_url':movie_url,'movie_picurl':movie_picurl}
+            movie.append(movie_name+u'    评分:'+movie_score)
+            movie.append(u'评分:'+movie_score)
+            movie.append(movie_picurl)
+            movie.append(movie_url)
             movie_list.append(movie)
+            
         except:
             pass
-
+        
     #return movie_list.sort(key = int(movie_list['movie_score']))
     return movie_list
+
+
+#print parse_html()
    
