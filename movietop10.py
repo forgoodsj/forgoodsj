@@ -45,7 +45,7 @@ def parse_html():
         except:
             pass
         
-     movie_list.sort(key=lambda x:x[1])
+    movie_list.sort(key=lambda x:x[1])
     return movie_list
 
 
