@@ -19,6 +19,7 @@ def pan(content):
     search_results = soup.find('div', attrs={'id': 'cse-search-result'})
     n = 1
     result_list = []
+    picurl = ['https://mmbiz.qlogo.cn/mmbiz_jpg/w7XYZOGUbVEF44ibc9xULbXZO6pskUDibZaNtlJvxatpPMiaL9u96Dgbibsesae8704Tame1nMfVH4nARJbYJh2Wfw/0?wx_fmt=jpeg','https://mmbiz.qlogo.cn/mmbiz_png/w7XYZOGUbVEF44ibc9xULbXZO6pskUDibZQPb5gaPfWsZJJOiaw9Iib0Ng4JaiaHXibxtmDzzHAIxwicaicVVSrZIhwM2Q/0?wx_fmt=png')
     for search_result in search_results.find_all('div',attrs={'class': 'cse-search-result_content_item'}):
         if n <= 10:
             result = []
@@ -26,7 +27,10 @@ def pan(content):
             url = search_result.a['href'] 
             result.append(name)
             result.append('')
-            result.append('')
+            if n == 1:
+                result.append(picurl(0))
+            else:
+                result.append(picurl(1))
             result.append(url)
             result_list.append(result)
             n = n+1
