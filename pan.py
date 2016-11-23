@@ -17,7 +17,7 @@ def pan(content):
     html = download_page(content)
     soup = BeautifulSoup(html)
     search_results = soup.find('div', attrs={'id': 'cse-search-result'})
-    n = 1
+    n = 0
     result_list = []
     picurl = ['https://mmbiz.qlogo.cn/mmbiz_jpg/w7XYZOGUbVEF44ibc9xULbXZO6pskUDibZaNtlJvxatpPMiaL9u96Dgbibsesae8704Tame1nMfVH4nARJbYJh2Wfw/0?wx_fmt=jpeg','https://mmbiz.qlogo.cn/mmbiz_png/w7XYZOGUbVEF44ibc9xULbXZO6pskUDibZQPb5gaPfWsZJJOiaw9Iib0Ng4JaiaHXibxtmDzzHAIxwicaicVVSrZIhwM2Q/0?wx_fmt=png']
     for search_result in search_results.find_all('div',attrs={'class': 'cse-search-result_content_item'}):
