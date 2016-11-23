@@ -24,27 +24,30 @@ def parse_html():
     movie_modbd = movie_now.find('div', attrs={'class': 'mod-bd'})
     movie_list_soup = movie_modbd.find('ul', attrs={'class': 'lists'})
     movie_list = []    
+    n = 1
     for movie_li in movie_list_soup.find_all('li',attrs={'class': 'list-item'}):
         try:
-            movie =[]
-            movie_name = movie_li.img['alt']          
-            movie_score = movie_li.find('span', attrs={'class': 'subject-rate'}).getText()
-            #movie_director = movie_li.li['data-director']
-            #movie_actors = movie_li.li['data-actors']
-            movie_url = movie_li.a['href']
-            movie_picurl = movie_li.img['src']
-            #movie.append(movie_name+u'    评分:'+movie_score,u'评分:'+movie_score,movie_picurl,movie_url)
-            #movie = {'movie_name':movie_name,'movie_score':movie_score,'movie_url':movie_url,'movie_picurl':movie_picurl}
-            movie.append(movie_name+u'    评分:'+movie_score)
-            movie.append(movie_score)
-            movie.append(movie_picurl)
-            movie.append(movie_url)
-            movie_list.append(movie)
-            
-        except:
-            pass
+            if n <10:            
+                movie =[]
+                movie_name = movie_li.img['alt']          
+                movie_score = movie_li.find('span', attrs={'class': 'subject-rate'}).getText()
+                #movie_director = movie_li.li['data-director']
+                #movie_actors = movie_li.li['data-actors']
+                movie_url = movie_li.a['href']
+                movie_picurl = movie_li.img['src']
+                #movie.append(movie_name+u'    评分:'+movie_score,u'评分:'+movie_score,movie_picurl,movie_url)
+                #movie = {'movie_name':movie_name,'movie_score':movie_score,'movie_url':movie_url,'movie_picurl':movie_picurl}
+                movie.append(movie_name+u'    评分:'+movie_score)
+                movie.append(movie_score)
+                movie.append(movie_picurl)
+                movie.append(movie_url)
+                movie_list.append(movie)
+                n = n+1
+            except:
+                pass
         
     movie_list.sort(key=lambda x:float(x[1]),reverse=True)
+    movie_list_num = [movie_list, n]
     return movie_list
 
 
