@@ -13,6 +13,7 @@ import imgtest
 import talk_api
 import loc
 import movietop10
+import pan
 
 class WeixinInterface:
     
@@ -86,6 +87,13 @@ class WeixinInterface:
                     
             elif content == u"我的id":
                 return self.render.reply_text(fromUser,toUser,int(time.time()),fromUser)
+            
+            elif content[0:3] == u"百度云":
+                info1 = content[3:]
+                info = info1.encode('utf-8')
+                msg = pan.pan(info)
+                return self.render.reply_news(fromUser,toUser,int(time.time()),msg,10)
+            
             elif u'电影' in content:
                 msg = movietop10.parse_html()
                 return self.render.reply_news(fromUser,toUser,int(time.time()),msg,10)
@@ -140,9 +148,17 @@ class WeixinInterface:
                                 
             elif content == u"我的id":
                 return self.render.reply_text(fromUser,toUser,int(time.time()),fromUser)
+            
+            elif content[0:3] == u"百度云":
+                info1 = content[3:]
+                info = info1.encode('utf-8')
+                msg = pan.pan(info)
+                return self.render.reply_news(fromUser,toUser,int(time.time()),msg,10)
+            
             elif u'电影' in content:
                 msg = movietop10.parse_html()
                 return self.render.reply_news(fromUser,toUser,int(time.time()),msg,10)
+            
             else:                            
                 info = content.encode('utf-8')
                 msg = talk_api.talk(info,userid)
