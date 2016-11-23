@@ -28,9 +28,9 @@ def pan(content):
             result.append(name)
             result.append('')
             if n == 1:
-                result.append(picurl(0))
+                result.append(picurl[0])
             else:
-                result.append(picurl(1))
+                result.append(picurl[1])
             result.append(url)
             result_list.append(result)
             n = n+1
