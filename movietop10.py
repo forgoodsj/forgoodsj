@@ -24,7 +24,7 @@ def parse_html():
     movie_modbd = movie_now.find('div', attrs={'class': 'mod-bd'})
     movie_list_soup = movie_modbd.find('ul', attrs={'class': 'lists'})
     movie_list = []    
-    n = 1
+    n = 0
     for movie_li in movie_list_soup.find_all('li',attrs={'class': 'list-item'}):
         try:
             if n <10:            
