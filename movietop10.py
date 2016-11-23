@@ -51,5 +51,5 @@ def parse_html():
     return movie_list_num
 
 
-print parse_html()
+#print parse_html()
    
