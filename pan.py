@@ -5,7 +5,7 @@ from bs4 import BeautifulSoup
 
 def download_page(content):
     info = content.encode('utf-8')
-    url ='http://www.wangpansou.cn/s.php?q='+ info
+    url ='http://www.wangpansou.cn/s.php?wp=15&ty=gn&op=baipan&q='+ info
     headers = {
             'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.80 Safari/537.36'
         }
@@ -25,9 +25,11 @@ def pan(content):
             n = n+1
             result = []
             name = search_result.find('div', attrs={'class': 'cse-search-result_content_item_mid'}).getText().strip()
+            text = search_result.find('a', attrs={'class': 'cse-search-result_content_item_top_a'}).getText().strip()
             url = search_result.a['href'] 
-            result.append(name)
-            result.append('')
+            name_text = name+':'+text
+            result.append(name_text)
+            result.append(name_text)
             if n == 1:
                 result.append(picurl[0])
             else:
