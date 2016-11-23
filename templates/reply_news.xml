@@ -8,7 +8,7 @@ $def with (toUser,fromUser,createTime,xinwen,num)
 <Articles>
 $for m in range(num):    
     <item>
-    <Title>$xinwen[m][0]</Title>
+    <Title><![CDATA[$xinwen[m][0]]]></Title>
     <Description><![CDATA[$xinwen[m][1]]]></Description>
     <PicUrl><![CDATA[$xinwen[m][2]]]></PicUrl>
     <Url><![CDATA[$xinwen[m][3]]]></Url>

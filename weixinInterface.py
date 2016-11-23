@@ -13,6 +13,7 @@ import imgtest
 import talk_api
 import loc
 import movietop10
+import pan
 
 class WeixinInterface:
     
@@ -49,7 +50,7 @@ class WeixinInterface:
         msgType=xml.find("MsgType").text
         fromUser=xml.find("FromUserName").text
         toUser=xml.find("ToUserName").text
-        userid = fromUser[0:15]
+        userid = fromUser[0:14]
         timeNow = time.strftime('%Y-%m-%d',time.localtime(time.time()))
         if msgType == 'text':
             content = xml.find("Content").text
@@ -86,9 +87,17 @@ class WeixinInterface:
                     
             elif content == u"我的id":
                 return self.render.reply_text(fromUser,toUser,int(time.time()),fromUser)
-            elif content == u"我要看电影":
+            
+            elif content[0:3] == u"百度云":
+                info = content[3:]
+                msg = pan.pan(info)
+                return self.render.reply_news(fromUser,toUser,int(time.time()),msg[0],msg[1])
+                #return self.render.reply_text(fromUser,toUser,int(time.time()),msg)
+                
+            
+            elif u'电影' in content:
                 msg = movietop10.parse_html()
-                return self.render.reply_news(fromUser,toUser,int(time.time()),msg,10)
+                return self.render.reply_news(fromUser,toUser,int(time.time()),msg[0],msg[1])
             
             else: 
                 info = content.encode('utf-8')
@@ -140,9 +149,17 @@ class WeixinInterface:
                                 
             elif content == u"我的id":
                 return self.render.reply_text(fromUser,toUser,int(time.time()),fromUser)
-            elif content == u"测试":
+            
+            elif content[0:3] == u"百度云":
+                info = content[3:]
+                msg = pan.pan(info)
+                #return self.render.reply_news(fromUser,toUser,int(time.time()),msg,10)
+                return self.render.reply_text(fromUser,toUser,int(time.time()),msg[0],msg[1])
+            
+            elif u'电影' in content:
                 msg = movietop10.parse_html()
-                return self.render.reply_news(fromUser,toUser,int(time.time()),msg,10)
+                return self.render.reply_news(fromUser,toUser,int(time.time()),msg[0],msg[1])
+            
             else:                            
                 info = content.encode('utf-8')
                 msg = talk_api.talk(info,userid)
