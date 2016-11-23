@@ -34,4 +34,4 @@ def pan(content):
             break
     return result_list
 
-print pan(u'速度与激情')
+#print pan(u'速度与激情')
