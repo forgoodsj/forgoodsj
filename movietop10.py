@@ -24,7 +24,7 @@ def parse_html():
     movie_modbd = movie_now.find('div', attrs={'class': 'mod-bd'})
     movie_list_soup = movie_modbd.find('ul', attrs={'class': 'lists'})
     movie_list = []    
-    n = 0
+    n = 1
     for movie_li in movie_list_soup.find_all('li',attrs={'class': 'list-item'}):
         try:
             if n <10:            
@@ -43,8 +43,8 @@ def parse_html():
                 movie.append(movie_url)
                 movie_list.append(movie)
                 n = n+1
-            except:
-                pass
+        except:
+            pass
         
     movie_list.sort(key=lambda x:float(x[1]),reverse=True)
     movie_list_num = [movie_list, n]
