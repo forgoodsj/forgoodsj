@@ -153,8 +153,8 @@ class WeixinInterface:
                 info1 = content[3:]
                 info = info1.encode('utf-8')
                 msg = pan.pan(info)
-                return self.render.reply_news(fromUser,toUser,int(time.time()),msg,10)
-            
+                #return self.render.reply_news(fromUser,toUser,int(time.time()),msg,10)
+                return self.render.reply_text(fromUser,toUser,int(time.time()),msg)
             elif u'电影' in content:
                 msg = movietop10.parse_html()
                 return self.render.reply_news(fromUser,toUser,int(time.time()),msg,10)
