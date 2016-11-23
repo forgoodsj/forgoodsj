@@ -48,8 +48,8 @@ def parse_html():
         
     movie_list.sort(key=lambda x:float(x[1]),reverse=True)
     movie_list_num = [movie_list, n]
-    return movie_list
+    return movie_list_num
 
 
-#print parse_html()
+print parse_html()
    
