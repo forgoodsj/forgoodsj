@@ -89,10 +89,11 @@ class WeixinInterface:
                 return self.render.reply_text(fromUser,toUser,int(time.time()),fromUser)
             
             elif content[0:3] == u"百度云":
-                info1 = content[3:]
-                info = info1.encode('utf-8')
+                info = content[3:]
                 msg = pan.pan(info)
                 return self.render.reply_news(fromUser,toUser,int(time.time()),msg,10)
+                #return self.render.reply_text(fromUser,toUser,int(time.time()),msg)
+                
             
             elif u'电影' in content:
                 msg = movietop10.parse_html()
@@ -150,8 +151,7 @@ class WeixinInterface:
                 return self.render.reply_text(fromUser,toUser,int(time.time()),fromUser)
             
             elif content[0:3] == u"百度云":
-                info1 = content[3:]
-                info = info1.encode('utf-8')
+                info = content[3:]
                 msg = pan.pan(info)
                 #return self.render.reply_news(fromUser,toUser,int(time.time()),msg,10)
                 return self.render.reply_text(fromUser,toUser,int(time.time()),msg)
