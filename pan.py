@@ -25,7 +25,7 @@ def pan(content):
             name = search_result.find('div', attrs={'class': 'cse-search-result_content_item_mid'}).getText().strip()
             url = search_result.a['href'] 
             result.append(name)
-            result.append(name)
+            result.append('')
             result.append('')
             result.append(url)
             result_list.append(result)
@@ -34,4 +34,4 @@ def pan(content):
             break
     return result_list
 
-#print pan(u'你好')
+print pan(u'速度与激情')
