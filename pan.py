@@ -17,11 +17,12 @@ def pan(content):
     html = download_page(content)
     soup = BeautifulSoup(html)
     search_results = soup.find('div', attrs={'id': 'cse-search-result'})
-    n = 1
+    n = 0
     result_list = []
     picurl = ['https://mmbiz.qlogo.cn/mmbiz_jpg/w7XYZOGUbVEF44ibc9xULbXZO6pskUDibZaNtlJvxatpPMiaL9u96Dgbibsesae8704Tame1nMfVH4nARJbYJh2Wfw/0?wx_fmt=jpeg','https://mmbiz.qlogo.cn/mmbiz_png/w7XYZOGUbVEF44ibc9xULbXZO6pskUDibZQPb5gaPfWsZJJOiaw9Iib0Ng4JaiaHXibxtmDzzHAIxwicaicVVSrZIhwM2Q/0?wx_fmt=png']
     for search_result in search_results.find_all('div',attrs={'class': 'cse-search-result_content_item'}):
-        if n <= 10:
+        if n <10:
+            n = n+1
             result = []
             name = search_result.find('div', attrs={'class': 'cse-search-result_content_item_mid'}).getText().strip()
             url = search_result.a['href'] 
@@ -33,9 +34,9 @@ def pan(content):
                 result.append(picurl[1])
             result.append(url)
             result_list.append(result)
-            n = n+1
         else:
             break
-    return result_list
+        result_list_num = [result_list, n]
+    return result_list_num
 
-#print pan(u'速度与激情')
+#print pan(u'香肠派对')
