@@ -14,7 +14,7 @@ import talk_api
 import loc
 import movietop10
 import pan
-global location
+
 location = {}
 class WeixinInterface:
     
@@ -67,7 +67,8 @@ class WeixinInterface:
         elif msgType == 'location':
             Location_X = xml.find("Location_X").text
             Location_Y = xml.find("Location_Y").text
-            Label = xml.find("Label").text 
+            Label = xml.find("Label").text
+            global location 
             location[fromUser]=[Location_X,Location_Y,Label]
             loc = location[fromUser]
             reply =  loc[0]+':'+loc[1]+':'+loc[2]
