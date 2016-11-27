@@ -69,6 +69,9 @@ class WeixinInterface:
             Location_Y = xml.find("Location_Y").text
             Label = xml.find("Label").text 
             location[fromUser]=[Location_X,Location_Y,Label]
+            loc = location[fromUser]
+            reply =  loc[0]+':'+loc[1]+':'+loc[2] 
+            return self.render.reply_text(fromUser,toUser,int(time.time()),reply)
                 
 
         if content == u"今天是什么日子":
