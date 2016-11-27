@@ -15,6 +15,7 @@ import loc
 import movietop10
 import pan
 
+g.location = {}
 class WeixinInterface:
     
     def __init__(self):
@@ -67,11 +68,9 @@ class WeixinInterface:
             Location_X = xml.find("Location_X").text
             Location_Y = xml.find("Location_Y").text
             Label = xml.find("Label").text 
-            #return self.render.reply_text(fromUser, toUser, int(time.time()),  Location_X+';'+Location_Y+';'+Label) 
-            #loc = [fromUser,[Location_X,Location_Y,Label]
-            
+            location[fromUser]=[Location_X,Location_Y,Label]
                 
-            location.append(loc)
+
         if content == u"今天是什么日子":
             d1 = datetime.datetime.now()
             d2 = datetime.datetime(2013,11,4)
@@ -116,15 +115,13 @@ class WeixinInterface:
             msg = movietop10.parse_html()
             return self.render.reply_news(fromUser,toUser,int(time.time()),msg[0],msg[1])
         
-        elif content == u"时间":
-            time_now =  time.strftime('%Y-%m-%d %H:%M:%S')
-            for n in range(5):
-                return self.render.reply_text(fromUser,toUser,int(time.time()),time_now)
-                return self.render.reply_text(fromUser,toUser,int(time.time()),'1')
-                time.sleep(5)
-            #if content == u"停止报时":
-                #break
-            
+        elif content == u"我的位置":
+            try:
+                loc = location[fromUser]
+                reply =  loc[0]+':'+loc[1]+':'+loc[2] 
+                return self.render.reply_text(fromUser,toUser,int(time.time()),reply)  
+            except:
+                return self.render.reply_text(fromUser,toUser,int(time.time()),u'你无处不在')    
         else: 
             info = content.encode('utf-8')
             msg = talk_api.talk(info,userid)
