@@ -118,7 +118,7 @@ class WeixinInterface:
         
         elif content == u"时间":
             time_now =  time.strftime('%Y-%m-%d %H:%M:%S')
-            while True:
+            for n in range(5):
                 return self.render.reply_text(fromUser,toUser,int(time.time()),time_now)
                 time.sleep(5)
             #if content == u"停止报时":
