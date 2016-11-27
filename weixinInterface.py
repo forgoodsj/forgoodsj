@@ -58,7 +58,7 @@ class WeixinInterface:
             content = xml.find("Recognition").text
         elif msgType == 'image':
             try:
-                media_id = 'adH7gfYGXJogSSPBi5mNNzl2pf8czDj_PekDVY5aSoncczqDtVmGR9j2F5nbi_VS'
+                media_id = xml.find("MediaId").text
                 return self.render.reply_image(fromUser, toUser, int(time.time()), media_id)
             except:
                 return self.render.reply_text(fromUser, toUser, int(time.time()),  '呆呆看不懂图片哎')
