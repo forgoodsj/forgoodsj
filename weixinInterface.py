@@ -68,15 +68,9 @@ class WeixinInterface:
             Location_X = xml.find("Location_X").text
             Location_Y = xml.find("Location_Y").text
             Label = xml.find("Label").text
-            location = {}
-            location[fromUser]=[Location_X,Location_Y,Label]
-            loc = location[fromUser]
-            reply =  loc[0]+':'+loc[1]+':'+loc[2]
-            try:                 
-                return self.render.reply_text(fromUser,toUser,int(time.time()),reply)
-            except:
-                return self.render.reply_text(fromUser,toUser,int(time.time()),'你无处不在')
-                
+            reply = u'你的地理位置，纬度:'+Location_X+u';经度:'+Location_Y+';位置:'+Label
+            return self.render.reply_text(fromUser,toUser,int(time.time()),reply)
+            
 
         if content == u"今天是什么日子":
             d1 = datetime.datetime.now()
@@ -122,13 +116,6 @@ class WeixinInterface:
             msg = movietop10.parse_html()
             return self.render.reply_news(fromUser,toUser,int(time.time()),msg[0],msg[1])
         
-        elif content == u"我的位置":
-            try:
-                loc = location[fromUser]
-                reply =  loc[0]+':'+loc[1]+':'+loc[2] 
-                return self.render.reply_text(fromUser,toUser,int(time.time()),reply)  
-            except:
-                return self.render.reply_text(fromUser,toUser,int(time.time()),u'你无处不在')    
         else: 
             info = content.encode('utf-8')
             msg = talk_api.talk(info,userid)
