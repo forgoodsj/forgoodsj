@@ -120,6 +120,7 @@ class WeixinInterface:
             time_now =  time.strftime('%Y-%m-%d %H:%M:%S')
             for n in range(5):
                 return self.render.reply_text(fromUser,toUser,int(time.time()),time_now)
+                return self.render.reply_text(fromUser,toUser,int(time.time()),'1')
                 time.sleep(5)
             #if content == u"停止报时":
                 #break
