@@ -68,7 +68,7 @@ class WeixinInterface:
             Location_X = xml.find("Location_X").text
             Location_Y = xml.find("Location_Y").text
             Label = xml.find("Label").text
-            reply = u'你的地理位置，纬度:'+Location_X+u';经度:'+Location_Y+';位置:'+Label
+            reply = u'你的地理位置，纬度:%s;经度:%s;位置:%s'%(Location_X,Location_Y,Label)
             return self.render.reply_text(fromUser,toUser,int(time.time()),reply)
             
 
