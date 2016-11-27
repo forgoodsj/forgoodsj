@@ -121,8 +121,8 @@ class WeixinInterface:
             while True:
                 return self.render.reply_text(fromUser,toUser,int(time.time()),time_now)
                 time.sleep(5)
-                if content == u"停止报时":
-                    break
+            #if content == u"停止报时":
+                #break
             
         else: 
             info = content.encode('utf-8')
