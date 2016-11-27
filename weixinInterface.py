@@ -54,6 +54,8 @@ class WeixinInterface:
         timeNow = time.strftime('%Y-%m-%d',time.localtime(time.time()))
         if msgType == 'text':
             content = xml.find("Content").text
+        elif msgType == 'voice':
+            content = xml.find("Recognition").text
             if content == u"今天是什么日子":
                 d1 = datetime.datetime.now()
                 d2 = datetime.datetime(2013,11,4)
@@ -119,9 +121,10 @@ class WeixinInterface:
                 else:
                     return self.render.reply_text(fromUser,toUser,int(time.time()),u'呆呆出问题了')
                     
-              
+'''              
             
-        elif msgType == 'voice':           
+        elif msgType == 'voice': 
+            content = xml.find("Recognition").text          
             info = content.encode('utf-8')
             msg = talk_api.talk(info,userid)
             if content == u"今天是什么日子":
@@ -177,7 +180,7 @@ class WeixinInterface:
                 else:
                     return self.render.reply_text(fromUser,toUser,int(time.time()),u'呆呆出问题了')
             
-                    
+'''                   
         
         
         elif msgType == 'image':
