@@ -14,8 +14,8 @@ import talk_api
 import loc
 import movietop10
 import pan
-
-g.location = {}
+global location
+location = {}
 class WeixinInterface:
     
     def __init__(self):
