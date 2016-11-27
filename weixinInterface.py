@@ -52,6 +52,7 @@ class WeixinInterface:
         toUser=xml.find("ToUserName").text
         userid = fromUser[0:14]
         timeNow = time.strftime('%Y-%m-%d',time.localtime(time.time()))
+        location = []
         if msgType == 'text':
             content = xml.find("Content").text
         elif msgType == 'voice':
@@ -66,7 +67,11 @@ class WeixinInterface:
             Location_X = xml.find("Location_X").text
             Location_Y = xml.find("Location_Y").text
             Label = xml.find("Label").text 
-            return self.render.reply_text(fromUser, toUser, int(time.time()),  Location_X+';'+Location_Y+';'+Label)  
+            #return self.render.reply_text(fromUser, toUser, int(time.time()),  Location_X+';'+Location_Y+';'+Label) 
+            #loc = [fromUser,[Location_X,Location_Y,Label]
+            
+                
+            location.append(loc)
         if content == u"今天是什么日子":
             d1 = datetime.datetime.now()
             d2 = datetime.datetime(2013,11,4)
@@ -110,6 +115,14 @@ class WeixinInterface:
         elif u'电影' in content:
             msg = movietop10.parse_html()
             return self.render.reply_news(fromUser,toUser,int(time.time()),msg[0],msg[1])
+        
+        elif content == u"时间":
+            time_now =  time.strftime('%Y-%m-%d %H:%M:%S')
+            while True:
+                return self.render.reply_text(fromUser,toUser,int(time.time()),time_now)
+                time.sleep(5)
+                if content == u"停止报时":
+                    break
             
         else: 
             info = content.encode('utf-8')
