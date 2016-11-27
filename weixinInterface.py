@@ -62,7 +62,11 @@ class WeixinInterface:
                 return self.render.reply_image(fromUser, toUser, int(time.time()), media_id)
             except:
                 return self.render.reply_text(fromUser, toUser, int(time.time()),  '呆呆看不懂图片哎')
-            
+        elif msgType == 'location':
+            Location_X = xml.find("Location_X").text
+            Location_Y = xml.find("Location_Y").text
+            Label = xml.find("Label").text 
+            return self.render.reply_text(fromUser, toUser, int(time.time()),  Location_X+';'+Location_Y+';'+Label)  
         if content == u"今天是什么日子":
             d1 = datetime.datetime.now()
             d2 = datetime.datetime(2013,11,4)
