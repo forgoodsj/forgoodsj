@@ -66,9 +66,9 @@ def talk(content, userid):
 
 
 
-content = u'电影'
-userid = '123'
-a =talk(content, userid)
-print a
+#content = u'电影'
+#userid = '123'
+#a =talk(content, userid)
+#print a
 
 

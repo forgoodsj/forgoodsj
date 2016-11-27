@@ -102,8 +102,7 @@ class WeixinInterface:
             msg = pan.pan(info)
             return self.render.reply_news(fromUser,toUser,int(time.time()),msg[0],msg[1])
             
-                
-            
+                            
         elif u'电影' in content:
             msg = movietop10.parse_html()
             return self.render.reply_news(fromUser,toUser,int(time.time()),msg[0],msg[1])
