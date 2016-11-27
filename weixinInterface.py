@@ -62,11 +62,7 @@ class WeixinInterface:
                 return self.render.reply_image(fromUser, toUser, int(time.time()), media_id)
             except:
                 return self.render.reply_text(fromUser, toUser, int(time.time()),  '呆呆看不懂图片哎')
-        
-        return content
-    
-    def reply(self):
-        content = POST(self)
+            
         if content == u"今天是什么日子":
             d1 = datetime.datetime.now()
             d2 = datetime.datetime(2013,11,4)
