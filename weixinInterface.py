@@ -121,7 +121,7 @@ class WeixinInterface:
                 else:
                     return self.render.reply_text(fromUser,toUser,int(time.time()),u'呆呆出问题了')
                     
-'''              
+        '''              
             
         elif msgType == 'voice': 
             content = xml.find("Recognition").text          
@@ -180,7 +180,7 @@ class WeixinInterface:
                 else:
                     return self.render.reply_text(fromUser,toUser,int(time.time()),u'呆呆出问题了')
             
-'''                   
+        '''                   
         
         
         elif msgType == 'image':
